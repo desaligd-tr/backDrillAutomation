@@ -38,6 +38,7 @@ namespace backDrillAutomation
             Thread.Sleep(3000);
             IWebElement btn_logOut = driver.FindElement(By.XPath("//div[starts-with(@class,'header__logout')]"));
             Assert.AreEqual(btn_logOut.Text,"Logout");
+
         }
 
         [Test]
