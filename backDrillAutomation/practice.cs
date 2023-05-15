@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium.Support.UI;
 
+
 namespace backDrillAutomation
 {
 
@@ -94,21 +95,22 @@ namespace backDrillAutomation
              button_trade.Click();
             // IWebElement cash_input = driver.FindElement(By.Id("input"));
             //cash_input.SendKeys("10");
-            Thread.Sleep(2000);
-            IWebElement input_tradeAmount = driver.FindElement(By.XPath("(//input[starts-with(@type,'text')])[2]"));
-            Thread.Sleep(1000);
-            input_tradeAmount.Clear();
-            Thread.Sleep(2000);
-            input_tradeAmount.SendKeys("10");
-            Thread.Sleep(2000);
+           // Thread.Sleep(2000);
+           // IWebElement input_tradeAmount = driver.FindElement(By.XPath("(//input[starts-with(@type,'text')])[2]"));
+           // Thread.Sleep(1000);
+          //  input_tradeAmount.Clear();
+          //  Thread.Sleep(2000);
+          //  input_tradeAmount.SendKeys("10");
+          //  Thread.Sleep(2000);
             IWebElement btn_openTrade = driver.FindElement(By.XPath("//div[@class='execution-action-button']/button"));
-            btn_openTrade.Click();
-            Console.WriteLine("Succesfful");
             Thread.Sleep(2000);
+            btn_openTrade.Click();
+            //Console.WriteLine("Succesfful");
+            
         }
 
         
-        [Test                                     ]
+        [Test]                                   
         public void test01_loginVPN()
         {
             driver.Url = "https://offlinemode.etoro.com";
@@ -157,45 +159,60 @@ namespace backDrillAutomation
 
     }
 
-    /*[Test]
-    public void test02_addToWatchList()
+    class ReptileAutomationTest
     {
-        driver.Url = "https://www.etoro.com/login";
-        driver.Manage().Window.Maximize();
-        IWebElement userName = driver.FindElement(By.Id("username"));
-        IWebElement password = driver.FindElement(By.Id("password"));
-        userName.SendKeys("BetaTester30");
-        password.SendKeys("Aa123456");
-        String userNameText = userName.Text;
-        IWebElement btn_login = driver.FindElement(By.XPath("//button[@class='button-default blue-btn']"));
-        btn_login.Click();
-        Thread.Sleep(3000);
-        IWebElement nameProfile = driver.FindElement(By.XPath("//div[@automation-id='sidenav-user-box']"));
-        Assert.True(nameProfile.Displayed);
-        Thread.Sleep(1000);
-        IWebElement btn_watchList = driver.FindElement(By.XPath("//a[@automation-id='sidenav-menu-watchlists']"));
-        btn_watchList.Click();
-        Thread.Sleep(3000);
-        IWebElement btn_addToWatchList = driver.FindElement(By.XPath("//button[@automation-id='watchlist-watchlist-btn-add-markets']"));
-        btn_addToWatchList.Click();
-        IWebElement btn_searchFromWatchList = driver.FindElement(By.XPath("//input[@automation-id='add-markets-search-bar']"));
-        btn_searchFromWatchList.SendKeys("doge");
-        Thread.Sleep(3000);
-        IWebElement btn_addToWatchL = driver.FindElement(By.XPath("//ets-checkbox[@automation-id='add-markets-browser-btn-add-item']"));
-        btn_addToWatchL.Click();
-        IWebElement btn_done = driver.FindElement(By.XPath("//button[@automation-id='add-markets-close-dialog-btn']"));
-        btn_done.Click();
-        Thread.Sleep(3000);
-        IWebElement list_symbol = driver.FindElement(By.XPath("(//div[@class='symbol'])[1]"));
-        Assert.AreEqual("DOGE", list_symbol.Text);
-        btn_addToWatchList.Click();
-        Thread.Sleep(3000);
-        IWebElement btn_searchFromWatchListR = driver.FindElement(By.XPath("//input[@automation-id='add-markets-search-bar']"));
-        btn_searchFromWatchListR.SendKeys("doge");
-        Thread.Sleep(2000);
-        IWebElement btn_removeFromWatchL = driver.FindElement(By.XPath("//ets-checkbox[@automation-id='add-markets-browser-btn-add-item']"));
-        btn_removeFromWatchL.Click();
+        [Test]
+        public void OpenAndClosePositions()
+        {
+            // Set up ChromeDriver
+            ChromeOptions options = new ChromeOptions();
+            options.AddArgument("--start-maximized");
+            IWebDriver driver = new ChromeDriver(options);
+
+            // Open the eToro website
+            driver.Navigate().GoToUrl("https://www.etoro.com/portfolio/overview");
+            IWebElement userName = driver.FindElement(By.Id("username"));
+            IWebElement password = driver.FindElement(By.Id("password"));
+            userName.SendKeys("BetaTester30");
+            password.SendKeys("Aa123456");
+            String userNameText = userName.Text;
+            IWebElement btn_login = driver.FindElement(By.XPath("//button[@class='button-default blue-btn']"));
+            btn_login.Click();
+            Thread.Sleep(2000);
+            //IWebElement btn_portfolio = driver.FindElement(By.XPath("/html/body/app-root/et-layout-main/div/div[2]/div[1]/et-layout-sidenav/aside/div[2]/nav/ul/li[3]/a"));
+            //Thread.Sleep(2000);
+            //btn_portfolio.Click();
+            IWebElement position = driver.FindElement(By.XPath("/html/body/app-root/et-layout-main/div/div[2]/div[2]/div[3]/div/ui-layout/ng-view/et-portfolio-overview/div/et-portfolio-list/et-portfolio-group-list/section/et-table/div[2]/div[3]/div/div[1]/div"));
+            Thread.Sleep(2000);
+            position.Click();
+            IWebElement close = driver.FindElement(By.XPath("/html/body/app-root/et-layout-main/div/div[2]/div[2]/div[3]/div/ui-layout/ng-view/et-portfolio-breakdown/div/div/div/div/div/et-portfolio-position-list/section/et-table/div[2]/div[1]/div/div[3]/div/button"));
+            close.Click();
+            Thread.Sleep(2000);
+            IWebElement close_trade = driver.FindElement(By.CssSelector("#uidialog1 > div.uidialog-content > div > div.w-sm-footer.ng-scope > button"));
+            Thread.Sleep(2000);
+            close_trade.Click();
+            //Console.WriteLine("Succesfful");
+
+
+            // Perform actions to repeatedly open and close positions
+            for (int i = 0; i < 1; i++)
+            {
+                // Perform actions to open a position
+                //IWebElement button_trade = driver.FindElement(By.XPath("//div[@class='head-instrument-action']/et-market-page-trade-button"));
+                //button_trade.Click();
+
+                // Perform actions to close the position
+                //IWebElement btn_portfolio = driver.FindElement(By.XPath("/html/body/app-root/et-layout-main/div/div[2]/div[1]/et-layout-sidenav/aside/div[2]/nav/ul/li[3]/a"));
+                //Thread.Sleep(2000);
+                //btn_portfolio.Click();
+                //IWebElement position =driver.FindElement(By.XPath("//a[@automation-id='portfolio-overview-table-body-cell-market-name'"));
+                //Thread.Sleep(2000);
+                //position.Click();
+            }
+
+            // Close the browser
+            driver.Quit();
+        }
     }
-    */
 
 }
