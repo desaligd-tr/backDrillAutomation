@@ -182,7 +182,7 @@ namespace backDrillAutomation
             //IWebElement btn_portfolio = driver.FindElement(By.XPath("/html/body/app-root/et-layout-main/div/div[2]/div[1]/et-layout-sidenav/aside/div[2]/nav/ul/li[3]/a"));
             //Thread.Sleep(2000);
             //btn_portfolio.Click();
-            IWebElement position = driver.FindElement(By.XPath("/html/body/app-root/et-layout-main/div/div[2]/div[2]/div[3]/div/ui-layout/ng-view/et-portfolio-overview/div/et-portfolio-list/et-portfolio-group-list/section/et-table/div[2]/div[3]/div/div[1]/div"));
+            IWebElement position = driver.FindElement(By.XPath("/html/body/app-root/et-layout-main/div/div[2]/div[2]/div[3]/div/ui-layout/ng-view/et-portfolio-overview/div/et-portfolio-list/et-portfolio-group-list/section/et-table/div[2]/div[2]/div/div[1]/div"));
             Thread.Sleep(2000);
             position.Click();
             IWebElement close = driver.FindElement(By.XPath("/html/body/app-root/et-layout-main/div/div[2]/div[2]/div[3]/div/ui-layout/ng-view/et-portfolio-breakdown/div/div/div/div/div/et-portfolio-position-list/section/et-table/div[2]/div[1]/div/div[3]/div/button"));
